@@ -1,0 +1,242 @@
+:root {
+  color-scheme: light;
+  --preview-ratio: 2 / 3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #f6f6f6;
+  color: #222;
+}
+
+.wrapper {
+  max-width: 70%;
+  margin: 3rem auto;
+  padding: 0 1.5rem 2rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-weight: 600;
+}
+
+select {
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.uploads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.upload-card {
+  border: 1.5px dashed #8b8b8b;
+  border-radius: 10px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: #fff;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.upload-card:hover {
+  border-color: #4b74ff;
+  background: #f0f5ff;
+}
+
+.upload-card strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.upload-card span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.upload-card input {
+  display: none;
+}
+
+#status {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+figure img,
+figure canvas {
+  width: 100%;
+  height: auto;
+  background: #e7e7e7;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  aspect-ratio: var(--preview-ratio);
+}
+
+figure img {
+  object-fit: contain;
+}
+
+figure canvas {
+  display: block;
+}
+
+figure figcaption {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.image-column {
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fusion-column {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px solid rgba(75, 116, 255, 0.2);
+  box-shadow: 0 16px 42px rgba(75, 116, 255, 0.22);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fusion-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #25306b;
+}
+
+.fusion-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.fusion-column canvas {
+  border-radius: 12px;
+  border: 2px solid rgba(75, 116, 255, 0.35);
+  background: linear-gradient(160deg, rgba(75, 116, 255, 0.08), rgba(169, 187, 255, 0.18));
+}
+
+.fusion-column figcaption {
+  display: none;
+}
+
+.puzzle-column {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px solid rgba(86, 161, 105, 0.25);
+  box-shadow: 0 16px 42px rgba(86, 161, 105, 0.2);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.puzzle-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1f5a36;
+}
+
+.puzzle-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.puzzle-column canvas {
+  border-radius: 12px;
+  border: 2px solid rgba(86, 161, 105, 0.35);
+  background: linear-gradient(160deg, rgba(178, 225, 196, 0.25), rgba(235, 250, 239, 0.6));
+}
+
+.puzzle-column figcaption {
+  display: none;
+}
+
+@media (max-width: 1400px) {
+  .workspace {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .workspace {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .fusion-column,
+  .puzzle-column {
+    width: 100%;
+  }
+}
