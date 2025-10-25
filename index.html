@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambiguous Puzzle Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Ambiguous Puzzle Builder</h1>
+            <p class="subtitle">Create a dual-solution square-piece jigsaw from your own images.</p>
+        </header>
+        <section class="controls" aria-label="Puzzle configuration">
+            <div class="control-group">
+                <label for="formatSelect">Format</label>
+                <select id="formatSelect">
+                    <option value="portrait">Portrait 2:3</option>
+                    <option value="landscape">Landscape 3:2</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="pieceSelect">Puzzle pieces</label>
+                <select id="pieceSelect">
+                    <option value="4x6">4 x 6</option>
+                    <option value="6x9">6 x 9</option>
+                    <option value="8x12">8 x 12</option>
+                    <option value="10x15">10 x 15</option>
+                </select>
+            </div>
+        </section>
+        <section class="board" aria-label="Puzzle workspace">
+            <article class="column input-column" data-image-index="0">
+                <h2>Image A</h2>
+                <label class="file-input">
+                    <span>Select image</span>
+                    <input id="fileInputA" type="file" accept="image/*">
+                </label>
+                <div class="preview" role="group" aria-label="Image A preview">
+                    <canvas id="canvasA" class="preview-canvas" aria-hidden="true"></canvas>
+                    <p id="metaA" class="meta">Awaiting image...</p>
+                </div>
+            </article>
+            <article class="column input-column" data-image-index="1">
+                <h2>Image B</h2>
+                <label class="file-input">
+                    <span>Select image</span>
+                    <input id="fileInputB" type="file" accept="image/*">
+                </label>
+                <div class="preview" role="group" aria-label="Image B preview">
+                    <canvas id="canvasB" class="preview-canvas" aria-hidden="true"></canvas>
+                    <p id="metaB" class="meta">Awaiting image...</p>
+                </div>
+            </article>
+            <article class="column arrangement-column" data-arrangement-index="0">
+                <h2>Arrangement A</h2>
+                <div class="loading-indicator" id="loadingIndicatorA" aria-hidden="true"><span></span><span></span><span></span></div>
+                <canvas id="arrangementCanvasA" class="arrangement-canvas" aria-hidden="true"></canvas>
+                <p id="arrangementMetaA" class="meta">Awaiting both images...</p>
+            </article>
+            <article class="column arrangement-column" data-arrangement-index="1">
+                <h2>Arrangement B</h2>
+                <div class="loading-indicator" id="loadingIndicatorB" aria-hidden="true"><span></span><span></span><span></span></div>
+                <canvas id="arrangementCanvasB" class="arrangement-canvas" aria-hidden="true"></canvas>
+                <p id="arrangementMetaB" class="meta">Awaiting both images...</p>
+            </article>
+        </section>
+    </main>
+    <script src="resolution.js" defer></script>
+    <script src="metrics.js" defer></script>
+    <script src="assignment.js" defer></script>
+    <script src="arrangements.js" defer></script>
+    <script src="blend.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
